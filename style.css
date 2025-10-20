@@ -2,8 +2,8 @@
 body {
     margin: 0;
     overflow: hidden;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* 更改字体 */
-    color: white; /* 默认文本颜色 */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: white;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -37,6 +37,7 @@ body {
 .glowing-heart-svg {
     width: 150px; /* 大小 */
     height: 150px;
+    stroke: white !important; /* 确保是白色描边 */
     filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.8)) drop-shadow(0 0 20px rgba(255, 255, 255, 0.6)); /* 发光效果 */
     animation: pulseGlow 3s infinite alternate ease-in-out; /* 呼吸式发光动画 */
 }
@@ -70,13 +71,13 @@ body {
     z-index: -1; /* 在内容之下 */
 }
 
-/* 浮动爱心样式 - 模拟 3D 感 */
+/* 浮动爱心样式 - 模拟 3D 感，且是规则的爱心 */
 .heart {
     position: absolute;
     --heart-size: 30px; /* 默认大小 */
     width: var(--heart-size);
     height: var(--heart-size);
-    background-color: #ff6b6b; /* 更鲜艳的红色 */
+    background-color: #ff6b6b; /* 红色 */
     transform: rotate(-45deg);
     border-radius: 5px; /* 稍微圆润的边角 */
 
@@ -128,9 +129,8 @@ body {
         opacity: 0.8;
     }
     100% {
-        transform: rotate(-45deg) scale(1.2); /* 最终放大倍数 */
-        opacity: 0;
         /* Y轴向上浮动，X轴随机飘动 */
         transform: translate(var(--end-x), var(--end-y)) rotate(-45deg) scale(1.2); 
+        opacity: 0;
     }
 }
