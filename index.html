@@ -1,118 +1,29 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
-  <head>
-    <meta charset="UTF-8" />
-    <title>王彦鑫的第一个网站</title>
-    <!--<meta http-equiv="Refresh" content="3" />-->
-    <!--刷新网站，每隔3秒-->
-    <link rel="icon" href="//cn.bing.com/sa/simg/bing_p_rr_teal_min.ico" />
-    <!--更改图标-->
-    <meta
-      name="'viewport"
-      content="width=device-width,initial-scale=1,user-scalable=yes"
-    />
-    <!--缩放-->
-  </head>
-  <body>
-    <h1 style="width: 1500px">I love you.&nbsp;love you</h1>
-    <h2>
-      I love you.<br />
-      I miss you.
-    </h2>
-    <h3>
-      <a>I want you.<br /></a>
-      <a href="https://www.bilibili.com/video/BV1w4411p7k9" target="_blank"
-        >You are my honey.</a
-      >
-    </h3>
-    <!--<a>超链接：网站，_self本网站，_blank新网站-->
-    <!--<img src="/images/A60_3787.JPG" alt="nice food" title="nice food" />-->
-    <img
-      width="200"
-      height="200"
-      src="images/A60_3787.JPG"
-      alt="nice food"
-      title="nice food"
-    />
-    兴趣爱好
-    <ul>
-      <li>吃蛋挞</li>
-      <li>拍照</li>
-      <li>红色</li>
-    </ul>
-    喜欢的人
-    <ol type="I" start="2">
-      <li>易烊千玺</li>
-      <li>我</li>
-    </ol>
-    <dl>
-      <dt>易烊千玺</dt>
-      <dd>帅气</dd>
-      <dd>演技好</dd>
-      <dt>我</dt>
-      <dd>是个人</dd>
-      <dd>爱宝宝</dd>
-    </dl>
-    <table border="1">
-      <thead>
-        <tr>
-          <th>id</th>
-          <th>name</th>
-          <th>hobby</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>1</td>
-          <td>易烊千玺</td>
-          <td>帅气</td>
-        </tr>
-        <tr>
-          <td>2</td>
-          <td>我</td>
-          <td>爱你</td>
-        </tr>
-        <!--rowspan='2'纵行合并；colspan='2'横列合并-->
-      </tbody>
-    </table>
-    <form action="" method="post" novalidate autocomplete="off"></form>
-    <input type="text" /><br>
-    <input type="password" /><br>
-    <input type="reset" /><br>
-    <input type="file" /><br>
-    <input type="number" /><br>
-    <input type="number" /><br>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>网站</title>
+        <link rel="stylesheet" href="style.css">
+        <style>
+            .button-containor{
+                margin-top:20px;
+            }
+            .button-containor button{
+                margin:0 10px;
+            }
+        </style>
 
-    性别<br>
-    <input type="radio" name="sex" value="1" />男
-    <input type="radio" name="sex" value="2" />女 
-    喜欢的人<br>
-    <input type="checkbox" name="hobby" value="1" />易烊千玺<br>
-    <input type="checkbox" name="hobby" value="2" />杨和苏<br>
-    <input type="checkbox" name="hobby" value="3" />我
-    <br>
-
-    <label
-      >用户名：
-      <input type="text" name="username" id="username" />
-    </label>
-    <br>
-    <label for="password">密码：</label>
-    <input type="password" name="password" id="password" />
-    <br>
-    <input type="button" />
-    <button type="button">注册</button>
-    <br>
-    <input type="submit" value="登录" />
-    <button type="submit">注册</button>
-    <br>
-    <select name="city" id="city" multiple>
-      <option value="1">北京</option>
-      <option value="2">上海</option>
-      <option value="3">广州</option>
-      <option value="4">深圳</option>
-    </select>
-    <br>
-    <textarea name="comment" id="comment" cols="20" rows="10"> </textarea>
-  </body>
+    </head>
+    <body>
+        <h1>美丽动人的公主</h1>
+        <div id="imageGarreryContainer">
+            <img id="myImage" src="image/1.jpg" alt="Image1">
+            <div class="button-container">
+                <button id="prevButton">上一张</button>
+                <button id="nextButton">下一张</button>
+            </div>
+        </div>
+        <script src="script.js"></script>
+    </body>
 </html>

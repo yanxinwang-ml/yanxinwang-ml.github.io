@@ -1,0 +1,54 @@
+body {
+    margin: 0;
+    overflow: hidden; /* 防止滚动条出现 */
+    background-color: #f0f0f0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.heart {
+    position: absolute; /* 绝对定位，方便控制位置 */
+    width: 20px;
+    height: 20px;
+    background-color: red;
+    transform: rotate(-45deg); /* 旋转45度形成爱心形状 */
+    animation: floatHeart 3s ease-out forwards; /* 动画效果 */
+    opacity: 0; /* 初始时隐藏 */
+}
+
+.heart::before,
+.heart::after {
+    content: '';
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background-color: red;
+    border-radius: 50%; /* 圆角形成爱心顶部 */
+}
+
+.heart::before {
+    top: -10px;
+    left: 0;
+}
+
+.heart::after {
+    left: 10px;
+    top: 0;
+}
+
+@keyframes floatHeart {
+    0% {
+        transform: rotate(-45deg) scale(0);
+        opacity: 0;
+    }
+    50% {
+        opacity: 1;
+    }
+    100% {
+        transform: rotate(-45deg) scale(1.5);
+        opacity: 0;
+        top: -100px; /* 向上浮动 */
+    }
+}
