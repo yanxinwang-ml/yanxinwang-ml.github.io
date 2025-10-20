@@ -1,14 +1,15 @@
-/* 自定义鼠标指针 */
+/* 基础样式和自定义鼠标指针 */
 body {
     margin: 0;
-    overflow: hidden;
+    overflow: hidden; /* 隐藏滚动条 */
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     color: white;
     display: flex;
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" fill="%23FF6B6B"><path d="M12 21.35L10.55 20.03C5.4 15.36 2 12.27 2 8.5C2 5.41 4.42 3 7.5 3C9.24 3 10.91 3.81 12 5.09C13.09 3.81 14.76 3 16.5 3C19.58 3 22 5.41 22 8.5C22 12.27 18.6 15.36 13.45 20.03L12 21.35Z"/></svg>') 12 12, auto; /* 爱心形状鼠标 */
+    /* 自定义爱心形状的鼠标指针 */
+    cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" fill="%23FF3366"><path d="M12 21.35L10.55 20.03C5.4 15.36 2 12.27 2 8.5C2 5.41 4.42 3 7.5 3C9.24 3 10.91 3.81 12 5.09C13.09 3.81 14.76 3 16.5 3C19.58 3 22 5.41 22 8.5C22 12.27 18.6 15.36 13.45 20.03L12 21.35Z"/></svg>') 12 12, auto;
 }
 
 /* 渐变背景 */
@@ -18,8 +19,9 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(135deg, #ff9a9e 0%, #fad0c4 50%, #a1c4fd 100%); /* 粉色到蓝色的渐变 */
-    z-index: -2; /* 确保在最底层 */
+    /* 粉色到蓝色的柔和渐变 */
+    background: linear-gradient(135deg, #ff9a9e 0%, #fad0c4 50%, #a1c4fd 100%);
+    z-index: -2;
 }
 
 /* 内容居中 */
@@ -27,24 +29,6 @@ body {
     position: relative;
     z-index: 1;
     text-align: center;
-}
-
-/* 中央发光爱心 */
-.center-heart-container {
-    margin-bottom: 20px;
-}
-
-.glowing-heart-svg {
-    width: 150px; /* 大小 */
-    height: 150px;
-    stroke: white !important; /* 确保是白色描边 */
-    filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.8)) drop-shadow(0 0 20px rgba(255, 255, 255, 0.6)); /* 发光效果 */
-    animation: pulseGlow 3s infinite alternate ease-in-out; /* 呼吸式发光动画 */
-}
-
-@keyframes pulseGlow {
-    0% { filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.8)) drop-shadow(0 0 20px rgba(255, 255, 255, 0.6)); }
-    100% { filter: drop-shadow(0 0 15px rgba(255, 255, 255, 1)) drop-shadow(0 0 30px rgba(255, 255, 255, 0.8)); }
 }
 
 /* 标题和副标题 */
@@ -60,6 +44,29 @@ body {
     text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
 }
 
+/* 中央发光爱心容器 */
+.center-heart-container {
+    margin-bottom: 20px;
+}
+
+/* 稍大的中心爱心 SVG 样式 */
+.glowing-heart-svg {
+    width: 250px; /* 增大尺寸，作为中心焦点 */
+    height: 250px;
+    stroke: white !important; /* 确保是白色描边 */
+    /* 发光效果 */
+    filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.8)) drop-shadow(0 0 20px rgba(255, 255, 255, 0.6)); 
+    animation: pulseGlow 3s infinite alternate ease-in-out; 
+    display: block; 
+    margin: 0 auto;
+}
+
+/* 呼吸式发光动画 */
+@keyframes pulseGlow {
+    0% { filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.8)) drop-shadow(0 0 20px rgba(255, 255, 255, 0.6)); }
+    100% { filter: drop-shadow(0 0 15px rgba(255, 255, 255, 1)) drop-shadow(0 0 30px rgba(255, 255, 255, 0.8)); }
+}
+
 /* 浮动爱心容器 */
 .floating-hearts-container {
     position: absolute;
@@ -68,29 +75,21 @@ body {
     width: 100%;
     height: 100%;
     pointer-events: none; /* 确保不阻挡点击事件 */
-    z-index: -1; /* 在内容之下 */
+    z-index: 0; /* 在背景和内容之间 */
 }
 
-/* 浮动爱心样式 - 模拟 3D 感，且是规则的爱心 */
+/* 跃动爱心样式 (极简规则的爱心形状) */
 .heart {
     position: absolute;
-    --heart-size: 30px; /* 默认大小 */
+    --heart-size: 15px; /* 默认大小，通过 JS 调整 */
     width: var(--heart-size);
     height: var(--heart-size);
-    background-color: #ff6b6b; /* 红色 */
+    background-color: #ff3366; /* 红色 */
     transform: rotate(-45deg);
-    border-radius: 5px; /* 稍微圆润的边角 */
-
-    /* 模拟 3D 感的阴影和渐变 */
-    box-shadow: 
-        inset -5px -5px 10px rgba(179, 47, 47, 0.5), /* 内部暗部 */
-        inset 5px 5px 10px rgba(255, 128, 128, 0.5), /* 内部亮部 */
-        3px 3px 8px rgba(0, 0, 0, 0.3); /* 外部投影 */
     
-    animation: floatHeart 4s ease-out forwards; /* 动画稍长一些 */
+    animation: floatHeart 1.5s ease-out forwards; /* 动画速度 */
     opacity: 0;
     pointer-events: none;
-    z-index: 0;
 }
 
 .heart::before,
@@ -99,13 +98,8 @@ body {
     position: absolute;
     width: var(--heart-size);
     height: var(--heart-size);
-    background-color: #ff6b6b;
+    background-color: #ff3366;
     border-radius: 50%;
-    /* 继承父元素的阴影 */
-    box-shadow: 
-        inset -5px -5px 10px rgba(179, 47, 47, 0.5),
-        inset 5px 5px 10px rgba(255, 128, 128, 0.5),
-        3px 3px 8px rgba(0, 0, 0, 0.3);
 }
 
 .heart::before {
@@ -118,19 +112,19 @@ body {
     top: 0;
 }
 
-/* 浮动爱心动画 - 增加 Y 轴位移和随机 X 轴位移 */
+/* 跃动爱心动画 - 从中心扩散 */
 @keyframes floatHeart {
     0% {
-        transform: rotate(-45deg) scale(0);
-        opacity: 0;
-        transform-origin: center center; /* 确保旋转中心正确 */
+        transform: rotate(-45deg) scale(0.5);
+        opacity: 0.5;
+        transform-origin: center center;
     }
-    20% {
-        opacity: 0.8;
+    50% {
+        opacity: 1; /* 中间最亮 */
     }
     100% {
-        /* Y轴向上浮动，X轴随机飘动 */
-        transform: translate(var(--end-x), var(--end-y)) rotate(-45deg) scale(1.2); 
+        /* 使用 CSS 变量实现随机扩散终点 */
+        transform: translate(var(--end-x), var(--end-y)) rotate(-45deg) scale(1.0); 
         opacity: 0;
     }
 }
